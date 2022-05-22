@@ -9,6 +9,8 @@ import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -18,11 +20,16 @@ import { CommentComponent } from './components/comment/comment.component';
     PostsComponent,
     PostComponent,
     CommentsComponent,
-    CommentComponent
+    CommentComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'home', component: AppComponent},
+      {path: 'user-details/:id', component: UserDetailsComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
